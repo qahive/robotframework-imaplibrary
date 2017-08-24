@@ -19,6 +19,7 @@
 IMAP Library - a IMAP email testing library.
 """
 
+import base64
 from email import message_from_string
 from imaplib import IMAP4, IMAP4_SSL
 from re import findall
