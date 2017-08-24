@@ -137,6 +137,18 @@ class ImapLibrary(object):
             if 'html' not in body:
                 body = self.decode_base64(body)
         return body
+        
+    def decode_base64(self, data):
+        """Decode base64, padding being optional.
+
+        :param data: Base64 data as an ASCII byte string
+        :returns: The decoded byte string.
+
+        """
+        missing_padding = len(data) % 4
+        if missing_padding != 0:
+            data += b'='* (4 - missing_padding)
+        return base64.decodestring(data)
 
     def get_links_from_email(self, email_index):
         """Returns all links found in the email body from given ``email_index``.
