@@ -133,6 +133,9 @@ class ImapLibrary(object):
                                   email_index,
                                   '(BODY[TEXT])')[1][0][1].\
                 decode('quoted-printable')
+            # Add workaround base64 encoding support
+            if 'html' not in body:
+                body = self.decode_base64(body)
         return body
 
     def get_links_from_email(self, email_index):
