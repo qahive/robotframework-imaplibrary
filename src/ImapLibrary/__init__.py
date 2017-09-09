@@ -1,3 +1,4 @@
+# encoding=utf8
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
@@ -18,6 +19,9 @@
 """
 IMAP Library - a IMAP email testing library.
 """
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
 
 import base64
 from email import message_from_string
